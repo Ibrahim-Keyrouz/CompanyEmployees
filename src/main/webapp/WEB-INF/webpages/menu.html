@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+
+<style>
+.redtext {
+	color: red;
+}
+
+.greentext {
+	color: green;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.navbar {
+  overflow: hidden;
+  background-color: #4A135D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+.dropdown1 {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+
+.dropdown1 .dropbtn1 {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropdown1:hover .dropbtn1, .dropbtn:focus, .dropbtn1:focus {
+  background-color: #DAB200;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4A135D; 
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #DAB200;
+}
+
+.show {
+  display: block;
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+<a href="${pageContext.request.contextPath}/">Home</a>
+  
+
+  <div class="dropdown">
+  
+  <button class="dropbtn" onclick="myFunction()">Employees Management
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown">
+<a href="${pageContext.request.contextPath}/employee/fetchall">Employees Info</a>
+
+
+  </div>
+  
+  
+  
+  
+  </div> 
+  
+  
+  
+
+  
+</div>
+
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+  
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+    
+  }
+
+ 
+
+  
+}
+</script>
+</body>
+</html>
