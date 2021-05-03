@@ -1,11 +1,6 @@
 package com.evaluationfadel.employees.model;
 
-
-import javax.validation.constraints.Size;  
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
-public class Employee  {
+public class Employee {
 	private Integer empId;
 	private String name;
 	private String familyName;
@@ -13,12 +8,13 @@ public class Employee  {
 	private String age;
 	private String startDate;
 	private String salary;
-	
+
 	public Employee() {
-		
+
 	}
 
-	public Employee(Integer empId, String name, String familyName, String gender, String age, String startDate, String salary) {
+	public Employee(Integer empId, String name, String familyName, String gender, String age, String startDate,
+			String salary) {
 		super();
 		this.empId = empId;
 		this.name = name;
@@ -84,7 +80,5 @@ public class Employee  {
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}
-	
-	
-	
+
 }

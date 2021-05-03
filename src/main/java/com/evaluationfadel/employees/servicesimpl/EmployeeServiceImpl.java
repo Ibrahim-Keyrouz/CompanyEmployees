@@ -28,5 +28,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.insertEmployee(emp);
 		
 	}
+	@Override
+	public List<Employee> getSpecificEmployees(Employee employee) {
+		// TODO Auto-generated method stub
+		return employeeRepository.getSpecificEmployees(employee);
+	}
 
 }

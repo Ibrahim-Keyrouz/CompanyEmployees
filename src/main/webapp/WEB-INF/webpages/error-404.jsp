@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>404 Error</title>
+<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/favicon.ico" />
 </head>
 <body>
 <h1 class ="h1color" > Something went wrong !!</h1>

@@ -6,7 +6,7 @@
 
 
 <title>Error</title>
-
+<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/favicon.ico" />
 </head>
 
 <body>

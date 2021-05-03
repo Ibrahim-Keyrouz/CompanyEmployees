@@ -10,6 +10,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=11">
 <title>All X Employees</title>
+<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/favicon.ico" />
 <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
       <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
@@ -40,6 +41,7 @@ a:visited {
 		var element1 = document.createElement("input");
 		element1.setAttribute("name", "empId");
 		element1.setAttribute("type", "text");
+		element1.setAttribute("autocomplete", "off");	
 		element1.setAttribute("class", "round default-width-input");
 		element1.setAttribute("readonly", "readonly");
 		element1.value = maxEmpId
@@ -50,6 +52,7 @@ a:visited {
 		//element2.type = "text";
 		//element2.name = "name";
 		element2.setAttribute("name", "name");
+		element2.setAttribute("autocomplete", "off");	
 		element2.setAttribute("type", "text");
 		element2.setAttribute("class", "round default-width-input");
 		cell2.appendChild(element2);
@@ -61,6 +64,7 @@ a:visited {
 		//element2.type = "text";
 		//element2.name = "name";
 		element3.setAttribute("name", "familyName");
+		element3.setAttribute("autocomplete", "off");	
 		element3.setAttribute("type", "text");
 		element3.setAttribute("class", "round default-width-input");
 		cell3.appendChild(element3);
@@ -95,6 +99,7 @@ a:visited {
 		//element2.type = "text";
 		//element2.name = "name";
 		element5.setAttribute("name", "age");
+		element5.setAttribute("autocomplete", "off");	
 		element5.setAttribute("type", "text");
 		element5.setAttribute("class", "round default-width-input");
 		cell5.appendChild(element5);
@@ -105,11 +110,11 @@ a:visited {
 		//element2.name = "name";
 		element6.setAttribute("name", "startDate");
 		element6.setAttribute("type", "text");
-		element6.setAttribute("id", "datepicker-1");
+		element6.setAttribute("id", "datepicker-2");
 		element6.setAttribute("readonly", "true");
 		//element6.setAttribute("class", "round default-width-input");
 		cell6.appendChild(element6);
-		 $( "#datepicker-1" ).datepicker({
+		 $( "#datepicker-2" ).datepicker({
 			 
 			 dateFormat:"dd-M-yy"
 
@@ -121,6 +126,7 @@ a:visited {
 		//element2.type = "text";
 		//element2.name = "name";
 		element7.setAttribute("name", "salary");
+		element7.setAttribute("autocomplete", "off");	
 		element7.setAttribute("type", "text");
 		element7.setAttribute("class", "round default-width-input");
 
@@ -160,10 +166,91 @@ a:visited {
 		<h1 class="h1color">All X Employees</h1>
 
 		<br /> <br />
+		
+		<form:form action="${pageContext.request.contextPath}/employee/fetchspecificemps/${maxEmpId}"
+			
+			modelAttribute="searchemployees" method="post">
+			<table>
+			<tbody>
+				<tr>
+				<td>Filter By Name :</td>
+				<td> <form:input id="simplesearchname" type="text"  path="name" autocomplete="off"></form:input>  </td>
+				<td> <a  href="#" onclick="document.getElementById('searchfilterby').style.visibility= 'visible';return false;">Advanced Search</a>	</td>
+				</tr>
+			
+			
+			
+			</tbody>
+			
+			
+			</table>
+			 
+				<div id="searchfilterby" style="visibility: hidden">
+				
+			<table>
+			<tbody>
+				<tr>
+				
+				<td>Family Name </td>
+				<td> <form:input id="filterbyfamilyName" type="text" name = "filterbyfamilyName" path="familyName" autocomplete="off"></form:input>  </td>
+				</tr>
+				
+				<tr>
+				
+				<td>Gender</td>
+				<td> 
+				<form:select path="gender">
+				<form:option value=""></form:option>
+				<form:option value="M">Male</form:option>
+				<form:option value="F">Female</form:option>
+				</form:select>
+				 </td>
+				 <td>					</td>
+				 <td>Age</td>
+				<td> <form:input id="filterbyage" type="text" name = "filterbyage" path="age" autocomplete="off"></form:input>  </td>
+				</tr>
+				
+				
+				
+				<tr>
+				
+				<td>Start Date</td>
+				<td> 
+				<form:input id="datepicker-1" type="text" name = "filterbystartdate" path="startDate" readonly="true"></form:input>
+				<script language="javascript"> 
+				 $( "#datepicker-1" ).datepicker({
+			 
+			 dateFormat:"dd-M-yy"
 
-		<form:form
+			 }); 
+				 </script>
+				 </td>
+				 <td>					</td>
+				 <td>Salary</td>
+				<td> <form:input id="filterbysalary" type="text" name = "filterbysalary" path="salary" autocomplete="off"></form:input>  </td>
+				</tr>
+			
+			
+			
+			
+			</tbody>
+			
+			
+			</table>
+			
+			
+			</div>
+		
+			
+			<a  href="#"
+							onclick="document.forms[0].submit();return false;">Search</a>
+			</form:form>
+		
+		<br /> <br />
+<form:form
 			action="${pageContext.request.contextPath}/employee/insertemployee"
 			modelAttribute="newemployee" method="post">
+
 
 
 			<table id="dataTable" border="1" cellpadding="10"
@@ -205,8 +292,9 @@ a:visited {
 						<td></td>
 						<td></td>
 						<td><a id="savelink" href="#"
-							onclick="document.getElementById('messageerror').style.visibility= 'visible';document.forms[0].submit();return false;"
+							onclick="document.getElementById('messageerror').style.visibility= 'visible';document.forms[1].submit();return false;"
 							style="visibility: hidden;">Save</a></td>
+							
 						<td><a href="#"
 							onclick="addRow('dataTable',${maxEmpId},this);">Add New </a></td>
 					</tr>
@@ -221,6 +309,7 @@ a:visited {
 			
 			
 		</form:form>
+		
 	</div>
 
 

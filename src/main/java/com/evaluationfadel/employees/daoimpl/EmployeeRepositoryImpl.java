@@ -30,4 +30,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
 		IOFunctions.insertRowInFile(GlobalVars.employeesDBFilePath+GlobalVars.employeesDBFileName, emp);
 	}
 
+	@Override
+	public List<Employee> getSpecificEmployees(Employee employee) {
+		// TODO Auto-generated method stub
+		return IOFunctions.fetchSpecificRows(GlobalVars.employeesDBFilePath+GlobalVars.employeesDBFileName,employee);
+	}
+
 }

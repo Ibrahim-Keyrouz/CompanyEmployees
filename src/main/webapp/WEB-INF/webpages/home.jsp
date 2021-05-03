@@ -5,11 +5,8 @@
 <head>
 <meta charset="utf-8">
 <title>Company X Home Page</title><meta http-equiv="X-UA-Compatible" content="IE=11" >
-<link rel="icon" type="image/x-icon" href="./employees.ico" />
-<script
-    src="../js/jquery-3.3.1.js"
-   >
-</script>
+<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/favicon.ico" />
+
 
 </head>
 <body>
